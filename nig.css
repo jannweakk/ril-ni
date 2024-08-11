@@ -21,11 +21,13 @@
 
 .slider-images {
   display: flex;
-  align-items: center;
-  gap: 21px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .slider-img {
+  flex: 0 0 auto;
   width: 110px; /* Base width */
   border-radius: 6px;
   cursor: pointer;
@@ -35,6 +37,7 @@
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
+  scroll-snap-align: start;
 }
 
 .slider-img img {
@@ -48,7 +51,7 @@
 
 /* Define heights for slider images */
 .slider-images .slider-img:nth-child(1),
-.slider-images .slider-img:nth-child(14){
+.slider-images .slider-img:nth-child(14) {
   height: 500px;
 }
 
@@ -70,23 +73,25 @@
   height: 800px;
 }
 
-/* Ensure consistent height for the last container */
 .slider-images .slider-img:nth-child(9) {
-  height: 665px; /* Adjust to match other containers of similar size */
+  height: 665px;
 }
-.slider-images .slider-img:nth-child(10){
+
+.slider-images .slider-img:nth-child(10) {
   height: 800px;
 }
+
 .slider-images .slider-img:nth-child(7) {
   height: 560px;
 }
-.slider-images .slider-img:nth-child(11){
+
+.slider-images .slider-img:nth-child(11) {
   height: 800px;
 }
-.slider-images .slider-img:nth-child(12) {
-  height: 665px; /* Adjust to match other containers of similar size */
-}
 
+.slider-images .slider-img:nth-child(12) {
+  height: 665px;
+}
 
 /* Style for h1 element */
 h1 {
@@ -158,4 +163,62 @@ h1 {
 
 .active .thumbnail {
   display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .slider-img {
+    width: 80px;
+  }
+
+  .slider-img.active {
+    width: 90% !important;
+    height: auto !important;
+  }
+
+  h1 {
+    font-size: 40px;
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%) rotate(-90deg);
+  }
+
+  .details h2 {
+    font-size: 20px;
+  }
+
+  .details p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-img {
+    width: 70px;
+  }
+
+  .slider-img.active {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  h1 {
+    font-size: 30px;
+    top: 5%;
+    left: 5%;
+    transform: translate(-5%, -5%) rotate(-90deg);
+  }
+
+  .details {
+    bottom: 5px;
+    font-size: 12px;
+  }
+
+  .details h2 {
+    font-size: 18px;
+  }
+
+  .details p {
+    font-size: 14px;
+  }
 }
