@@ -17,13 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-
-.slider-wrapper {
-  position: relative;
-  height: 100%;
-  width: 100%;
+  overflow-x: hidden;
 }
 
 .slider-images {
@@ -35,21 +29,10 @@
   padding: 10px;
   max-width: 100%;
   flex-wrap: nowrap;
-  position: absolute;
-  width: 100%;
-}
-
-.top-layer {
-  top: 0;
-}
-
-.bottom-layer {
-  bottom: 0;
-  top: auto;
 }
 
 .slider-img {
-  min-width: 300px; /* Adjust as needed */
+  min-width: 300px; /* Adjusted to be slightly wider on mobile */
   max-width: 100%;
   border-radius: 6px;
   cursor: pointer;
@@ -63,6 +46,7 @@
   scroll-snap-align: center;
 }
 
+/* Adjust opacity for images but not for gifs */
 .slider-img img.thumbnail {
   width: 100%;
   height: auto;
@@ -107,4 +91,114 @@ h1 {
 
 .details h2,
 .details p {
- 
+  font-family: "Jost", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  display: none;
+}
+
+.details h2 {
+  font-size: 26px;
+  line-height: 44px;
+}
+
+.details p {
+  font-size: 20px;
+  line-height: 33px;
+}
+
+.slider-img.active {
+  width: 100%; /* Ensures active image uses the full container width */
+  height: auto;
+}
+
+.slider-img.active h1 {
+  display: none;
+}
+
+.slider-img.active .details p,
+.slider-img.active .details h2 {
+  display: block;
+}
+
+.gif {
+  display: none;
+}
+
+.active .gif {
+  display: block;
+}
+
+.active .thumbnail {
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .slider-images {
+    gap: 15px;
+  }
+
+  .slider-img {
+    min-width: 30%; /* Shows 2-3 images depending on screen size */
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .details h2 {
+    font-size: 20px;
+  }
+
+  .details p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-images {
+    gap: 10px;
+  }
+
+  .slider-img {
+    min-width: 45%; /* Shows 2 images in the viewport */
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .details h2 {
+    font-size: 18px;
+  }
+
+  .details p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-images {
+    gap: 5px;
+  }
+
+  .slider-img {
+    min-width: 80%; /* Shows 1-2 images in the viewport */
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .details h2 {
+    font-size: 16px;
+  }
+
+  .details p {
+    font-size: 12px;
+  }
+}
+
