@@ -44,7 +44,7 @@
   align-items: center;
   justify-content: center;
   scroll-snap-align: center;
-  opacity: 0.5; /* Set opacity to 0.75 to view background */
+  opacity: 0.50; /* Set opacity to 0.75 to view background */
 }
 
 .slider-img img {
