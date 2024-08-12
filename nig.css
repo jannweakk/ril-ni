@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: auto; /* Allow horizontal scrolling on mobile */
 }
 
 .slider-images {
@@ -31,10 +32,11 @@
   cursor: pointer;
   position: relative;
   transition: 0.9s ease;
-  overflow: hidden; /* Ensure that child content does not overflow */
+  overflow: hidden;
   display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff; /* Add border color to each image */
 }
 
 .slider-img img {
@@ -46,9 +48,9 @@
   opacity: 0.75;
 }
 
-/* Define heights for slider images */
+/* Image height adjustments */
 .slider-images .slider-img:nth-child(1),
-.slider-images .slider-img:nth-child(14){
+.slider-images .slider-img:nth-child(14) {
   height: 500px;
 }
 
@@ -70,23 +72,22 @@
   height: 800px;
 }
 
-/* Ensure consistent height for the last container */
+/* Adjust height for last container */
 .slider-images .slider-img:nth-child(9) {
-  height: 665px; /* Adjust to match other containers of similar size */
+  height: 665px;
 }
-.slider-images .slider-img:nth-child(10){
+.slider-images .slider-img:nth-child(10) {
   height: 800px;
 }
 .slider-images .slider-img:nth-child(7) {
   height: 560px;
 }
-.slider-images .slider-img:nth-child(11){
+.slider-images .slider-img:nth-child(11) {
   height: 800px;
 }
 .slider-images .slider-img:nth-child(12) {
-  height: 665px; /* Adjust to match other containers of similar size */
+  height: 665px;
 }
-
 
 /* Style for h1 element */
 h1 {
@@ -94,24 +95,22 @@ h1 {
   font-size: 60px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #ffffff; /* Set text color to white */
+  color: #ffffff;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg); /* Center and rotate text */
-  transform-origin: center center;
-  white-space: nowrap; /* Prevent text from wrapping */
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap;
   transition: 0.7s ease;
-  z-index: 1; /* Ensure text appears above images */
+  z-index: 1;
 }
 
-/* Style for details */
 .details {
   position: absolute;
-  bottom: 10px; /* Position details at the bottom of the image */
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1; /* Ensure details appear above images */
+  z-index: 1;
 }
 
 .details h2,
@@ -120,7 +119,7 @@ h1 {
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  color: #fff; /* Set text color to white */
+  color: #fff;
   display: none;
 }
 
@@ -160,4 +159,32 @@ h1 {
   display: none;
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .slider-container {
+    overflow-x: scroll; /* Enable scrolling on smaller screens */
+  }
 
+  .slider-img {
+    width: 150px;
+    height: auto; /* Adjust height based on content */
+  }
+
+  .slider-img.active {
+    width: 250px !important;
+    height: auto !important;
+  }
+
+  h1 {
+    font-size: 30px;
+    transform: translate(-50%, -50%) rotate(0deg); /* Remove rotation on mobile */
+  }
+
+  .details h2 {
+    font-size: 18px;
+  }
+
+  .details p {
+    font-size: 16px;
+  }
+}
