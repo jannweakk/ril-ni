@@ -44,18 +44,27 @@
   align-items: center;
   justify-content: center;
   scroll-snap-align: center;
-  opacity: 0.50; /* Set opacity to 0.75 to view background */
 }
 
-.slider-img img {
+/* Adjust opacity for images but not for gifs */
+.slider-img img.thumbnail {
   width: 100%;
   height: auto;
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
+  opacity: 0.75; /* Set opacity for thumbnail images */
 }
 
-/* Styles for heading */
+.slider-img img.gif {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+  opacity: 1; /* Ensure GIFs have full opacity */
+}
+
 h1 {
   font-family: "Jost", sans-serif;
   font-size: 60px;
@@ -72,7 +81,6 @@ h1 {
   z-index: 1;
 }
 
-/* Styles for details */
 .details {
   position: absolute;
   bottom: 10px;
@@ -193,3 +201,4 @@ h1 {
     font-size: 12px;
   }
 }
+
