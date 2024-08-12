@@ -24,20 +24,22 @@
   display: flex;
   align-items: center;
   gap: 21px;
-  flex-wrap: nowrap;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 20px;
-  max-width: 100%; /* Ensures the slider does not become wider than the screen */
+  padding: 10px;
+  max-width: 100%;
+  flex-wrap: nowrap;
 }
 
 .slider-img {
-  flex: 1 1 auto; /* Flexbox property to allow images to resize proportionally */
+  min-width: 250px;
+  max-width: 100%; /* Prevents the image from exceeding the viewport width */
   border-radius: 6px;
   cursor: pointer;
   position: relative;
   transition: 0.9s ease;
   overflow: hidden;
+  flex: 0 0 auto; /* Prevents images from shrinking */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,48 +48,10 @@
 
 .slider-img img {
   width: 100%;
-  height: 100%;
+  height: auto; /* Maintains aspect ratio */
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
-}
-
-/* Define heights for slider images */
-.slider-images .slider-img:nth-child(1),
-.slider-images .slider-img:nth-child(14) {
-  height: 500px;
-}
-
-.slider-images .slider-img:nth-child(2),
-.slider-images .slider-img:nth-child(8),
-.slider-images .slider-img:nth-child(13) {
-  height: 560px;
-}
-
-.slider-images .slider-img:nth-child(3),
-.slider-images .slider-img:nth-child(4),
-.slider-images .slider-img:nth-child(5),
-.slider-images .slider-img:nth-child(6) {
-  height: 665px;
-}
-
-.slider-images .slider-img:nth-child(4),
-.slider-images .slider-img:nth-child(5) {
-  height: 800px;
-}
-
-.slider-images .slider-img:nth-child(9),
-.slider-images .slider-img:nth-child(12) {
-  height: 665px;
-}
-
-.slider-images .slider-img:nth-child(10),
-.slider-images .slider-img:nth-child(11) {
-  height: 800px;
-}
-
-.slider-images .slider-img:nth-child(7) {
-  height: 560px;
 }
 
 h1 {
@@ -135,8 +99,8 @@ h1 {
 }
 
 .slider-img.active {
-  width: 766px !important;
-  height: 750px !important;
+  width: 100%; /* Ensures active image uses the full container width */
+  height: auto;
 }
 
 .slider-img.active h1 {
@@ -162,18 +126,13 @@ h1 {
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-  .slider-container {
-    height: auto;
-    padding: 10px;
-  }
-
   .slider-images {
     gap: 15px;
   }
 
   .slider-img {
-    min-width: 30%; /* Display 2-3 images depending on screen size */
-    height: auto;
+    min-width: 30%; /* Shows 2-3 images depending on screen size */
+    max-width: 100%; /* Prevents the image from becoming too wide */
   }
 
   h1 {
@@ -190,18 +149,13 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .slider-container {
-    height: auto;
-    padding: 10px;
-  }
-
   .slider-images {
     gap: 10px;
   }
 
   .slider-img {
-    min-width: 45%; /* Display 2 images in the viewport */
-    height: auto;
+    min-width: 45%; /* Shows 2 images in the viewport */
+    max-width: 100%;
   }
 
   h1 {
@@ -218,18 +172,13 @@ h1 {
 }
 
 @media (max-width: 480px) {
-  .slider-container {
-    height: auto;
-    padding: 5px;
-  }
-
   .slider-images {
     gap: 5px;
   }
 
   .slider-img {
-    min-width: 80%; /* Display 1-2 images in the viewport */
-    height: auto;
+    min-width: 80%; /* Shows 1-2 images in the viewport */
+    max-width: 100%;
   }
 
   h1 {
