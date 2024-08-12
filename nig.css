@@ -28,10 +28,11 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 20px;
+  max-width: 100%; /* Ensures the slider does not become wider than the screen */
 }
 
 .slider-img {
-  min-width: 110px;
+  flex: 1 1 auto; /* Flexbox property to allow images to resize proportionally */
   border-radius: 6px;
   cursor: pointer;
   position: relative;
@@ -40,7 +41,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   scroll-snap-align: center;
 }
 
@@ -50,7 +50,6 @@
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
-  opacity: 1; /* Full opacity for better visibility */
 }
 
 /* Define heights for slider images */
@@ -77,25 +76,18 @@
   height: 800px;
 }
 
-/* Ensure consistent height for the last container */
-.slider-images .slider-img:nth-child(9) {
+.slider-images .slider-img:nth-child(9),
+.slider-images .slider-img:nth-child(12) {
   height: 665px;
 }
 
-.slider-images .slider-img:nth-child(10) {
+.slider-images .slider-img:nth-child(10),
+.slider-images .slider-img:nth-child(11) {
   height: 800px;
 }
 
 .slider-images .slider-img:nth-child(7) {
   height: 560px;
-}
-
-.slider-images .slider-img:nth-child(11) {
-  height: 800px;
-}
-
-.slider-images .slider-img:nth-child(12) {
-  height: 665px;
 }
 
 h1 {
@@ -180,7 +172,7 @@ h1 {
   }
 
   .slider-img {
-    min-width: calc(33.33% - 10px); /* Display 3 images in the viewport */
+    min-width: 30%; /* Display 2-3 images depending on screen size */
     height: auto;
   }
 
@@ -208,7 +200,7 @@ h1 {
   }
 
   .slider-img {
-    min-width: calc(50% - 10px); /* Display 2 images in the viewport */
+    min-width: 45%; /* Display 2 images in the viewport */
     height: auto;
   }
 
@@ -236,7 +228,7 @@ h1 {
   }
 
   .slider-img {
-    min-width: calc(100% - 10px); /* Display 1 image in the viewport */
+    min-width: 80%; /* Display 1-2 images in the viewport */
     height: auto;
   }
 
