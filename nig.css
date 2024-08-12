@@ -32,28 +32,30 @@
 }
 
 .slider-img {
-  min-width: 250px;
-  max-width: 100%; /* Prevents the image from exceeding the viewport width */
+  min-width: 300px; /* Adjusted to be slightly wider on mobile */
+  max-width: 100%;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
   transition: 0.9s ease;
   overflow: hidden;
-  flex: 0 0 auto; /* Prevents images from shrinking */
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: center;
+  opacity: 0.75; /* Set opacity to 0.75 to view background */
 }
 
 .slider-img img {
   width: 100%;
-  height: auto; /* Maintains aspect ratio */
+  height: auto;
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
 }
 
+/* Styles for heading */
 h1 {
   font-family: "Jost", sans-serif;
   font-size: 60px;
@@ -70,6 +72,7 @@ h1 {
   z-index: 1;
 }
 
+/* Styles for details */
 .details {
   position: absolute;
   bottom: 10px;
@@ -132,7 +135,6 @@ h1 {
 
   .slider-img {
     min-width: 30%; /* Shows 2-3 images depending on screen size */
-    max-width: 100%; /* Prevents the image from becoming too wide */
   }
 
   h1 {
@@ -155,7 +157,6 @@ h1 {
 
   .slider-img {
     min-width: 45%; /* Shows 2 images in the viewport */
-    max-width: 100%;
   }
 
   h1 {
@@ -178,7 +179,6 @@ h1 {
 
   .slider-img {
     min-width: 80%; /* Shows 1-2 images in the viewport */
-    max-width: 100%;
   }
 
   h1 {
