@@ -5,10 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ril n</title>
   <link rel="stylesheet" href="nig.css">
-
 </head>
 <body>
-  <section class="slider-container">
+  <!-- Password Protection Section -->
+  <section id="password-section" class="password-section">
+    <div class="password-container">
+      <h1></h1>
+      <input type="password" id="password" placeholder="Password">
+      <button id="submit-btn">Submit</button>
+      <p id="error-message" style="display: none;">Incorrect password. Try again.</p>
+    </div>
+  </section>
+
+  <!-- Slider Section (Hidden Initially) -->
+  <section id="slider-section" class="slider-container" style="display: none;">
     <div class="slider-images">
       <div class="slider-img">
         <img src="kyen/kyen.png" alt="1" class="thumbnail">
@@ -124,26 +134,27 @@
       </div>
     </div>
   </section>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function () {
+      $("#submit-btn").click(function () {
+        const inputPassword = $("#password").val();
+        const correctPassword = "gwapo"; // Replace with your desired password
+
+        if (inputPassword === correctPassword) {
+          $("#password-section").hide();
+          $("#slider-section").show();
+        } else {
+          $("#error-message").show();
+        }
+      });
+
       $(".slider-img").on("click", function () {
         $(".slider-img").removeClass("active");
         $(this).addClass("active");
       });
     });
   </script>
-    <style>
-      .gif {
-        display: none;
-      }
-      .active .gif {
-        display: block;
-      }
-      .active .thumbnail {
-        display: none;
-      }
-    </style>
 </body>
 </html>
-  
