@@ -17,21 +17,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .slider-images {
   display: flex;
   align-items: center;
   gap: 21px;
-  flex-wrap: nowrap; /* Prevent wrapping of images */
-  overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
-  scroll-snap-type: x mandatory; /* Snap scrolling */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   padding: 20px;
 }
 
 .slider-img {
-  min-width: 110px; /* Base width */
+  min-width: 110px;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
@@ -40,8 +40,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0; /* Prevent shrinking */
-  scroll-snap-align: center; /* Center snapping */
+  flex-shrink: 0;
+  scroll-snap-align: center;
 }
 
 .slider-img img {
@@ -50,7 +50,7 @@
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
-  opacity: 0.75;
+  opacity: 1; /* Full opacity for better visibility */
 }
 
 /* Define heights for slider images */
@@ -169,19 +169,19 @@ h1 {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .slider-container {
     height: auto;
     padding: 10px;
   }
 
-  .slider-img {
-    min-width: 80px;
+  .slider-images {
+    gap: 15px;
   }
 
-  .slider-img.active {
-    width: 100% !important;
-    height: auto !important;
+  .slider-img {
+    min-width: calc(33.33% - 10px); /* Display 3 images in the viewport */
+    height: auto;
   }
 
   h1 {
@@ -194,5 +194,61 @@ h1 {
 
   .details p {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    height: auto;
+    padding: 10px;
+  }
+
+  .slider-images {
+    gap: 10px;
+  }
+
+  .slider-img {
+    min-width: calc(50% - 10px); /* Display 2 images in the viewport */
+    height: auto;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .details h2 {
+    font-size: 18px;
+  }
+
+  .details p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-container {
+    height: auto;
+    padding: 5px;
+  }
+
+  .slider-images {
+    gap: 5px;
+  }
+
+  .slider-img {
+    min-width: calc(100% - 10px); /* Display 1 image in the viewport */
+    height: auto;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .details h2 {
+    font-size: 16px;
+  }
+
+  .details p {
+    font-size: 12px;
   }
 }
